@@ -1,0 +1,26 @@
+<table class="table table-hover">
+    <thead>
+        <tr class="table-dark">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Sales Volume</th>
+            <th>Sales Target Met?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Angular provided Looping constructs-->
+        <tr *ngFor="let salesPerson of salesPersonList" [ngClass]="{'highlight': salesPerson.salesVolume > 70000}">
+            <td>{{salesPerson.firstName}}</td>
+            <td>{{salesPerson.lastName}}</td>
+            <td>{{salesPerson.email}}</td>
+            <!-- currency below comes from Angular Currency Pipes and is solely used for formatting data-->
+            <td>{{salesPerson.salesVolume | currency:'USD'}}</td>
+            <td>
+                <!-- Angular provided Structural Conditionals-->
+                <div *ngIf="salesPerson.salesVolume>70000;else myElseBlock">Yes</div>
+                <ng-template #myElseBlock>No</ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>

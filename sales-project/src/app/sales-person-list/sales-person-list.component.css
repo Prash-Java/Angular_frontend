@@ -1,0 +1,4 @@
+/* If Sales Person Target is > 70000, lets mark such row with background colour green */
+.highlight{
+    background-color: lightseagreen;
+}
